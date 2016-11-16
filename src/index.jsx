@@ -1,9 +1,11 @@
 import React from 'react';
-import Voting from './components/Voting';
+import { render } from "react-dom";
+import Voting from './components/Voting.jsx';
+
 
 const pair = ['Trainspotting', '28 Days Later'];
 
-React.render(
+render(
   <Voting pair={pair} />,
   document.getElementById('app')
 );

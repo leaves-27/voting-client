@@ -63,7 +63,7 @@
 /******/ 	}
 
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "0cbcbbd86a711aabfd16"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "a3a9a1ad4b11590df3f7"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 
@@ -583,7 +583,7 @@
 
 	__webpack_require__(1);
 	__webpack_require__(75);
-	module.exports = __webpack_require__(77);
+	(function webpackMissingModule() { throw new Error("Cannot find module \"./src/index.jsx\""); }());
 
 
 /***/ },
@@ -8436,15 +8436,6 @@
 		}
 	};
 
-
-/***/ },
-/* 77 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(process) {
-
-	 ;(function register() { /* react-hot-loader/webpack */ if (process.env.NODE_ENV !== 'production') { if (typeof __REACT_HOT_LOADER__ === 'undefined') { return; } if (typeof module.exports === 'function') { __REACT_HOT_LOADER__.register(module.exports, 'module.exports', "/Users/kk/tests/voting-client/src/index.jsx"); return; } for (var key in module.exports) { if (!Object.prototype.hasOwnProperty.call(module.exports, key)) { continue; } var namedExport = void 0; try { namedExport = module.exports[key]; } catch (err) { continue; } __REACT_HOT_LOADER__.register(namedExport, key, "/Users/kk/tests/voting-client/src/index.jsx"); } } })();
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(14)))
 
 /***/ }
 /******/ ]);
