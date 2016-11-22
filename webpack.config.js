@@ -1,19 +1,19 @@
 var webpack = require('webpack');
 
 module.exports = {
-  entry: [
+  entry:[
     'webpack-dev-server/client?http://localhost:8080',
     'webpack/hot/only-dev-server',
     './src/index.js'
   ],
-  module: {
-    loaders: [{
-      test: /\.js?$/,
-      exclude: /node_modules/,
-      loader: 'babel',
-      query:{
-        presets:["es2015","stage-0","react"],
-        sourceMap:true
+  module : {
+    loaders : [{
+      test : /\.js?$/,
+      exclude : /node_modules/,
+      loader :'babel',
+      query : {
+        presets : ["es2015","stage-0","react"],
+        sourceMap : true
       }
     }, {
       test: /\.css$/,
