@@ -5,6 +5,7 @@ export default React.createClass({
     return this.props.pair || [];
   },
   isDisabled: function() {
+    console.log("disabled",!!this.props.hasVoted)
     return !!this.props.hasVoted;
   },
   hasVotedFor: function(entry) {
@@ -15,8 +16,7 @@ export default React.createClass({
       {this.getPair().map(entry =>
         <button 
           key={entry} 
-          disabled={this.isDisabled()}
-          onClick={() => this.props.vote(entry)} >
+          onClick={(e) => { if(!this.isDisabled()){ this.props.vote(entry);} }} >
           <h1>{entry}</h1>
           {this.hasVotedFor(entry) ?
             <div className="label">Voted</div> :
