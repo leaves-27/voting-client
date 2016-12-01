@@ -1,10 +1,28 @@
 import React from 'react';
+import {Router,Route,hashHistory,IndexRoute} from 'react-router';
 import { render } from "react-dom";
-import Voting from './components/Voting';
+import store from './store';
 
-const pair = ['Trainspotting','28 Days Later'];
+import App from './components/App';
+import {Voting,VotingContainer} from './components/Voting';
+import {Results,ResultsContainer} from './components/Results';
+
+// store.dispatch({
+//   type: 'SET_STATE',
+//   state: {
+//     vote: {
+//       pair: ['Sunshine', '28 Days Later'],
+//       tally: {Sunshine: 2}
+//     }
+//   }
+// });
+
+let routes = <Route path="/" component={App}>
+      <Route path="/results" component={ResultsContainer} />
+      <IndexRoute component={VotingContainer}/>
+    </Route>;
 
 render(
-  <Voting pair={pair}  hasVoted="Trainspotting" winner="Trainspotting"/>,
+  <Router routes={routes} history={hashHistory} />,
   document.getElementById('app')
 );
