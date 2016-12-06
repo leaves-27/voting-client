@@ -12,16 +12,26 @@ export default React.createClass({
   },
   render: function() {
     return <div className="voting">
-      {this.getPair().map(entry =>
-        <button 
-          key={entry} 
-          onClick={(e) => { if(!this.isDisabled()){ this.props.vote(entry);} }} >
-          <h1>{entry}</h1>
-          {this.hasVotedFor(entry) ?
-            <div className="label">Voted</div> :
-            null}
-        </button>
-      )}
+      {
+        this.getPair().map(entry =>
+          <button
+            className="btn btn-success btn-lg"
+            key={entry}
+            disabled = {this.isDisabled()} 
+            onClick={
+              (e) => { 
+                if(!this.isDisabled()){ 
+                  this.props.vote(entry);
+                } 
+              }
+            }>
+            <div>{entry}</div>
+            {
+              this.hasVotedFor(entry) ? <div className="label">Voted</div> : null 
+            }
+          </button>
+        )
+      }
     </div>;
   }
 });

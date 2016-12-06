@@ -1,0 +1,13 @@
+.voting button:nth-child(2){
+  margin-left:30px;
+}
+.label{
+  color : #d9534f
+}
+.management{
+  margin-top:50px;
+}
+.vote-amount{
+  font-size:30px;
+  color : #d9534f;
+}

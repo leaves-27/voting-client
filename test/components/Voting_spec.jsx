@@ -80,14 +80,12 @@ describe('Voting', () => {
     let firstButton = scryRenderedDOMComponentsWithTag(component, 'button')[0];
     expect(firstButton.textContent).to.equal('Trainspotting');
 
-    // pair[0] = 'Sunshine';
-    
-    // for(var i in component.props){
-    //   console.log(component.props.pair)
-    // }
-    // component.props.pair = pair;
-    // firstButton = scryRenderedDOMComponentsWithTag(component, 'button')[0];
-    // expect(firstButton.textContent).to.equal('Trainspotting');
+    pair[0] = 'Sunshine';
+    component.setState({
+      pair:pair
+    });
+    firstButton = scryRenderedDOMComponentsWithTag(component, 'button')[0];
+    expect(firstButton.textContent).to.equal('Trainspotting');
   });
 
   it('does update DOM when prop changes', () => {
@@ -99,9 +97,9 @@ describe('Voting', () => {
     let firstButton = scryRenderedDOMComponentsWithTag(component, 'button')[0];
     expect(firstButton.textContent).to.equal('Trainspotting');
 
-    // const newPair = pair.set(0, 'Sunshine');
-    // component.setProps({pair: newPair});
-    // firstButton = scryRenderedDOMComponentsWithTag(component, 'button')[0];
-    // expect(firstButton.textContent).to.equal('Sunshine');
+    const newPair = pair.set(0, 'Sunshine');
+    component.setState({pair: newPair});
+    firstButton = scryRenderedDOMComponentsWithTag(component, 'button')[0];
+    expect(firstButton.textContent).to.equal('Sunshine');
   });
 });

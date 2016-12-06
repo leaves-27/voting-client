@@ -34,10 +34,10 @@ describe('Results', () => {
     const component = renderIntoDocument(
       <Results pair={pair}
                tally={Map()}
-               next={next}/>
+               next={next} />
     );
-    Simulate.click(React.findDOMNode(component.refs.next));
 
+    Simulate.click(findDOMNode(component.refs.next));
     expect(nextInvoked).to.equal(true);
   });
 
@@ -47,7 +47,8 @@ describe('Results', () => {
         pair={["Trainspotting", "28 Days Later"]}
         tally={Map()} />
     );
-    const winner = React.findDOMNode(component.refs.winner);
+    
+    const winner = findDOMNode(component.refs.winner);
     expect(winner).to.be.ok;
     expect(winner.textContent).to.contain('Trainspotting');
   });

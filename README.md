@@ -27,12 +27,6 @@
      1)用户的操作行为：
      2)来自服务端状态的更新：
   (2)
-function(store){
-  function(next){
-    function(action){
-  
-    }
-  }
-}
+3.
 
 

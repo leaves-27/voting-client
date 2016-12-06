@@ -7,8 +7,8 @@ function setState(state, newState) {
 function vote(state, entry) {
   const currentPair = state.getIn(['vote', 'pair']);
   if (currentPair && currentPair.includes(entry)) {
-    return state.set('hasVoted', entry);
-  } else {
+    return state.set('hasVoted',entry);
+  }else{
     return state;
   }
 }
@@ -28,7 +28,7 @@ export default function(state = Map(), action) {
     case 'SET_STATE':
       return resetVote(setState(state, action.state));
     case 'VOTE':
-      return vote(state, action.entry);
+      return vote(state,action.entry);
   }
   return state;
 }

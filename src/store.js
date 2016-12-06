@@ -1,7 +1,7 @@
 import {createStore,applyMiddleware} from 'redux';
 import io from 'socket.io-client';
 
-import {setState} from './action_creators';
+import { setState } from './action_creators';
 import reducer from './reducer';
 
 import remoteActionMiddleware from './remote_action_middleware';

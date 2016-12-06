@@ -3,15 +3,23 @@ import {connect} from 'react-redux';
 
 import Winner from './Winner';
 import Vote from './Vote';
+import PureRenderMixin from 'react-addons-pure-render-mixin';
 
 import * as actionCreators from '../action_creators';
 
 export const Voting = React.createClass({
+  mixins:[PureRenderMixin],
   render: function(){
     return <div>
-      {this.props.winner ?
+      {
+        this.props.winner ?
         <Winner ref="winner" winner={this.props.winner} /> :
-        <Vote {...this.props} />}
+        <form className="form-horizontal" role="form">
+          <div className="form-group form-group-lg">
+            <Vote {...this.props} />
+          </div>
+        </form>
+      }
     </div>;
   }
 });

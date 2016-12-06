@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import * as actionCreators from '../action_creators';
+import Winner from './Winner';
 
 export const Results =  React.createClass({
   getPair: function() {
@@ -18,9 +19,9 @@ export const Results =  React.createClass({
       <div className="results">
         <div className="tally">
           {this.getPair().map(entry =>
-            <div key={entry} className="entry">
+            <div key={entry} className="entry row">
               <h1>{entry}</h1>
-              <div className="voteCount">
+              <div className="vote-amount">
                 {this.getVotes(entry)}
               </div>
             </div>
@@ -28,7 +29,7 @@ export const Results =  React.createClass({
         </div>
         <div className="management">
           <button ref="next"
-                   className="next"
+                   className="next btn btn-danger btn-lg"
                    onClick={this.props.next}>
             Next
           </button>
