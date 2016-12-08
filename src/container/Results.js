@@ -1,7 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
+
 import * as actionCreators from '../action_creators';
-import Winner from './Winner';
+import Winner from '../components/Winner';
 
 export const Results =  React.createClass({
   getPair: function() {

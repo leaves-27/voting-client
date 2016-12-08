@@ -1,5 +1,6 @@
 import {Map,List} from 'immutable';
 import { combineReducers } from 'redux'; 
+import { createReducer } from 'redux-convenient-utils'; 
 
 function setState(state, newState) {
   return state.merge(newState);
@@ -24,28 +25,7 @@ function resetVote(state){
   }
 }
 
-// const stateApp = function(state = Map(), action) {
-//   switch (action.type) {
-//     case 'SET_STATE':
-//       return resetVote(setState(state, action.state));
-//     case 'VOTE':
-//       return vote(state,action.entry);
-//   }
-//   return state;
-// }
-
-
-function createReducer(initialState = Map(), handlers) {
-  return function reducer(state = initialState, action) {
-    if (handlers.hasOwnProperty(action.type)) {
-      return handlers[action.type](state, action);
-    } else {
-      return state;
-    }
-  }
-}
-
-const stateApp = createReducer(undefined,{
+const stateApp = createReducer(Map(),{
   ['SET_STATE'](state,action){
     return resetVote(setState(state, action.state))
   },

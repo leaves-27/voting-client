@@ -1,9 +1,10 @@
 import React from 'react';
 import {Router,Route,hashHistory,IndexRoute} from 'react-router';
 import { render } from "react-dom";
-import App from './components/App';
-import {Voting,VotingContainer} from './components/Voting';
-import {Results,ResultsContainer} from './components/Results';
+
+import App from './container/App';
+import {Voting,VotingContainer} from './container/Voting';
+import {Results,ResultsContainer} from './container/Results';
 
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
 import "./index.css"
