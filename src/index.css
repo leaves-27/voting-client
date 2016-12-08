@@ -11,3 +11,8 @@
   font-size:30px;
   color : #d9534f;
 }
+
+.winner{font-size: 50px;}
+.winner span{
+  color: #d9534f;
+}

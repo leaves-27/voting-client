@@ -16,7 +16,6 @@
 11.从react组件中指派actions
 12.使用Redux Middleware发送actions到服务端
 
-//存在问题:使用了react-router后，如何将数据通过props传递下去
 1.应用的状态：
   pair:
   tally:
@@ -27,6 +26,6 @@
      1)用户的操作行为：
      2)来自服务端状态的更新：
   (2)
-3.
+
 
 

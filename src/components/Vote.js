@@ -27,7 +27,7 @@ export default React.createClass({
             }>
             <div>{entry}</div>
             {
-              this.hasVotedFor(entry) ? <div className="label">Voted</div> : null 
+              this.hasVotedFor(entry) ? <div className="label">已投</div> : null 
             }
           </button>
         )

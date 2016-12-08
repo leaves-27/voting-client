@@ -63,7 +63,7 @@
 /******/ 	}
 
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "f7d93d20264abc3afb64"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "766354e7aa41fce9ff69"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 
@@ -8506,9 +8506,11 @@
 
 	var _Results = __webpack_require__(397);
 
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 	__webpack_require__(398);
+
+	__webpack_require__(407);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var routes = _react2.default.createElement(
 	  _reactRouter.Route,
@@ -34664,7 +34666,11 @@
 	    return _react2.default.createElement(
 	      _reactRedux.Provider,
 	      { store: _store2.default },
-	      this.props.children
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'jumbotron text-center' },
+	        this.props.children
+	      )
 	    );
 	  }
 	});
@@ -44374,22 +44380,14 @@
 	  value: true
 	});
 
-	exports.default = function () {
-	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : (0, _immutable.Map)();
-	  var action = arguments[1];
-
-	  switch (action.type) {
-	    case 'SET_STATE':
-	      return resetVote(setState(state, action.state));
-	    case 'VOTE':
-	      return vote(state, action.entry);
-	  }
-	  return state;
-	};
-
 	var _immutable = __webpack_require__(389);
 
-	function setState(state, newState) {
+	var _redux = __webpack_require__(318);
+
+	function setState() {
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : (0, _immutable.Map)();
+	  var newState = arguments[1];
+
 	  return state.merge(newState);
 	}
 
@@ -44411,6 +44409,48 @@
 	    return state;
 	  }
 	}
+
+	var stateApp = function stateApp() {
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : (0, _immutable.Map)();
+	  var action = arguments[1];
+
+	  console.log(state);
+	  switch (action.type) {
+	    case 'SET_STATE':
+	      return resetVote(setState(state, action.state));
+	    case 'VOTE':
+	      return vote(state, action.entry);
+	  }
+	  return state;
+	};
+
+	// function createReducer(initialState, handlers) {
+	//   return function reducer(state = initialState, action) {
+	//     if (handlers.hasOwnProperty(action.type)) {
+	//       return handlers[action.type](state, action);
+	//     } else {
+	//       return state;
+	//     }
+	//   }
+	// }
+
+	// const setStateReduce= createReducer(state,{
+	//   [ActionType.SET_STATE]:{
+	//     resetVote(setState(state, action.state))
+	//   }
+	// });
+	// const voteReduce = createReducer(state,{
+	//   [ActionType.VOTE]:{
+	//     vote(state,action.entry);
+	//   }
+	// });
+
+	// const stateApp = combineReducers(setState(state,{
+	//   entries:setStateReduce,
+	//   hasVoted:voteReduce
+	// }));
+
+	exports.default = stateApp;
 
 /***/ },
 /* 389 */
@@ -49464,7 +49504,15 @@
 	    return _react2.default.createElement(
 	      'div',
 	      null,
-	      this.props.winner ? _react2.default.createElement(_Winner2.default, { ref: 'winner', winner: this.props.winner }) : _react2.default.createElement(_Vote2.default, this.props)
+	      this.props.winner ? _react2.default.createElement(_Winner2.default, { ref: 'winner', winner: this.props.winner }) : _react2.default.createElement(
+	        'form',
+	        { className: 'form-horizontal', role: 'form' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'form-group form-group-lg' },
+	          _react2.default.createElement(_Vote2.default, this.props)
+	        )
+	      )
 	    );
 	  }
 	});
@@ -49502,8 +49550,12 @@
 	    return _react2.default.createElement(
 	      "div",
 	      { className: "winner" },
-	      "Winner is ",
-	      this.props.winner,
+	      "\u83B7\u80DC\u8005\u662F ",
+	      _react2.default.createElement(
+	        "span",
+	        null,
+	        this.props.winner
+	      ),
 	      "!"
 	    );
 	  }
@@ -49547,6 +49599,7 @@
 	        return _react2.default.createElement(
 	          "button",
 	          {
+	            className: "btn btn-success btn-lg",
 	            key: entry,
 	            disabled: _this.isDisabled(),
 	            onClick: function onClick(e) {
@@ -49555,14 +49608,14 @@
 	              }
 	            } },
 	          _react2.default.createElement(
-	            "h1",
+	            "div",
 	            null,
 	            entry
 	          ),
 	          _this.hasVotedFor(entry) ? _react2.default.createElement(
 	            "div",
 	            { className: "label" },
-	            "Voted"
+	            "\u5DF2\u6295"
 	          ) : null
 	        );
 	      })
@@ -49710,7 +49763,7 @@
 	        this.getPair().map(function (entry) {
 	          return _react2.default.createElement(
 	            'div',
-	            { key: entry, className: 'entry' },
+	            { key: entry, className: 'entry row' },
 	            _react2.default.createElement(
 	              'h1',
 	              null,
@@ -49718,7 +49771,7 @@
 	            ),
 	            _react2.default.createElement(
 	              'div',
-	              { className: 'voteCount' },
+	              { className: 'vote-amount' },
 	              _this.getVotes(entry)
 	            )
 	          );
@@ -49730,7 +49783,7 @@
 	        _react2.default.createElement(
 	          'button',
 	          { ref: 'next',
-	            className: 'next',
+	            className: 'next btn btn-danger btn-lg',
 	            onClick: this.props.next },
 	          'Next'
 	        )
@@ -49751,6 +49804,20 @@
 
 /***/ },
 /* 398 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 399 */,
+/* 400 */,
+/* 401 */,
+/* 402 */,
+/* 403 */,
+/* 404 */,
+/* 405 */,
+/* 406 */,
+/* 407 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
