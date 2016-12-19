@@ -2,7 +2,7 @@ import React from 'react';
 import {RouteHandler} from 'react-router';
 import {Provider} from 'react-redux';
 
-import store from '../store';
+import store from '../socket/store';
 
 export default React.createClass({
   render: function() {

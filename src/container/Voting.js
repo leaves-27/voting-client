@@ -4,7 +4,7 @@ import PureRenderMixin from 'react-addons-pure-render-mixin';
 
 import Winner from '../components/Winner';
 import Vote from '../components/Vote';
-import * as actionCreators from '../action_creators';
+import * as actionCreators from '../action/action_creators';
 
 export const Voting = React.createClass({
   mixins:[PureRenderMixin],

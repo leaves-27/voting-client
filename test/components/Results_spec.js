@@ -4,7 +4,7 @@ import TestUtils from 'react-addons-test-utils';
 import {expect} from 'chai';
 import {findDOMNode} from 'react-dom';
 
-import {Results} from '../../src/components/Results';
+import {Results} from '../../src/container/Results';
 
 const { renderIntoDocument,scryRenderedDOMComponentsWithClass,Simulate } = TestUtils;
 

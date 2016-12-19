@@ -1,10 +1,12 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import PureRenderMixin from 'react-addons-pure-render-mixin';
 
-import * as actionCreators from '../action_creators';
+import * as actionCreators from '../action/action_creators';
 import Winner from '../components/Winner';
 
 export const Results =  React.createClass({
+  mixins:[PureRenderMixin],
   getPair: function() {
     return this.props.pair || [];
   },
@@ -47,4 +49,11 @@ function mapStateToProps(state) {
   }
 }
 
+
 export const ResultsContainer = connect(mapStateToProps,actionCreators)(Results);
+
+
+
+
+
+
