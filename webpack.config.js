@@ -1,10 +1,16 @@
 var webpack = require('webpack');
 var HtmlwebpackPlugin = require('html-webpack-plugin');//用来生成一个html
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var devServer = {
+  host:"localhost",
+  port:"8080",
+  contentBase: './dist',
+  hot: true
+}
 
 module.exports = {
   entry:[
-    'webpack-dev-server/client?http://localhost:8080',
+    'webpack-dev-server/client?http://'+devServer.host+':'+devServer.port,
     'webpack/hot/only-dev-server',
     './src/index.js'
   ],
@@ -49,10 +55,7 @@ module.exports = {
     publicPath: '/',
     filename: 'bundle.js'
   },
-  devServer: {
-    contentBase: './dist',
-    hot: true
-  },
+  devServer : devServer,
   plugins: [
     new HtmlwebpackPlugin({
       filename: 'index.html',

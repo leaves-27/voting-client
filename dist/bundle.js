@@ -63,7 +63,7 @@
 /******/ 	}
 
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "318b6a28ad856d306041"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "553f98521d5c64f433d3"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 
@@ -719,7 +719,7 @@
 		}
 	}
 
-	/* WEBPACK VAR INJECTION */}.call(exports, "?http://localhost:8080"))
+	/* WEBPACK VAR INJECTION */}.call(exports, "?http://192.168.126.235:8080"))
 
 /***/ },
 /* 2 */
