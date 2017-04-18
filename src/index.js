@@ -9,7 +9,7 @@ import {Results,ResultsContainer} from './container/Results';
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
 import "./index.css"
 
-let routes = <Route path="/" component={App}>
+let routes = <Route path="/" component={App} >
       <Route path="/results" component={ResultsContainer} />
       <IndexRoute component={VotingContainer}/>
     </Route>;

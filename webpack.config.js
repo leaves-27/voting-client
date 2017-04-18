@@ -2,7 +2,7 @@ var webpack = require('webpack');
 var HtmlwebpackPlugin = require('html-webpack-plugin');//用来生成一个html
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var devServer = {
-  host:"localhost",
+  host:"192.168.124.82",
   port:"8080",
   contentBase: './dist',
   hot: true
